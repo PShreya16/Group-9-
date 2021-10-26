@@ -1,0 +1,244 @@
+*{margin: 0;padding: 0; box-sizing: border-box;
+	font-family: 'Alata', sans-serif;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body{
+	background-image: linear-gradient(#000328 10%, #07f49e);
+}
+#fix_head{
+	width: 100%;
+	height: 80px;
+	background: #000328;
+	position: sticky;
+	padding: 1vh;	
+	display: grid;
+	top: 0;
+	z-index: +1;
+}
+#logo_img{
+	height: 8vh;
+	width: 8vh;
+	float: left;
+	border-radius: 4vh;
+	margin: auto;
+}
+#rem_body{
+	width: 100%;
+	height: 950px;
+}
+.top_dsgn{
+	width: 100%;
+	height: 320px;
+	background: none;
+	margin: auto;
+}
+#head_info_txt{
+	height: 50%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#head_text{
+	color: #66FFC7;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing:0px;
+	font-weight: bold;
+	font-size: 45px;
+	text-shadow: 0px 2px 5px black;
+}
+
+#main_menu{
+	height: 220px;
+	/*height: 260px;*/
+	width: 1300px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-650px, -160px);
+	background: #fff;
+	border-radius: 2vh;
+	box-shadow: 1px 1px 10px 0px;
+	display: block;
+	transition: 0.2s;
+}
+#opt_cont{
+	width: 95%;
+	height: 256px;
+	position: absolute;
+	top: 160px;
+	left: 50%;
+	transform: translate(-50%, -160px);
+	padding: 0px;
+}
+#inpt_cont{
+	height: 50%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 1%;
+	/*border: 2px solid;*/
+}
+.aft_div{
+	padding: 5px;	
+	margin: 10px;
+	/*border: 2px solid;*/
+	height: 100px;
+	width: 350px;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+	align-items: center;
+}
+#amount{
+	width: 330px;
+	height: 40px;
+	border-radius: 8px;
+	outline: none;
+	border: 0.1px solid grey;
+	background: none;
+	transition: 0.3s;
+	color: grey;
+	padding-left: 15px;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	box-shadow: 0px 0px 10px 0px lightgrey;
+}
+#amount:focus{
+	outline: none;
+	border: 2px solid #0E0E52;
+	background: #d0ffff;
+	color: #0E0E52;
+}
+#from_opt, #to_opt{
+	width: 330px;
+	height: 40px;
+}
+.froto_options{
+	width: 330px;
+	height: 40px;
+	padding: 5px;
+	border-radius: 8px;
+	background: none;
+	font-size: 20px;
+	font-weight: bold;
+	box-shadow: 0px 0px 10px 0px lightgrey;
+	border: 0.1px solid grey;
+	align-self: flex-end;
+
+}
+.froto_options:focus{
+	outline: none;
+	border: 2px solid #0E0E52;
+	background: #d0ffff;
+	color: #0E0E52;
+}
+#rev_but{
+	/*border: 2px solid;*/
+	height: 100px;
+	width: 100px;
+	display: flex;
+	padding: 5px;
+	justify-content: space-around;
+	align-items: flex-end;
+}
+#reverse_button{
+	margin-bottom: 5px;
+	height: 40px;
+	width: 50px;
+	background: none;
+	border-radius: 5px;
+	border: 2px solid black;
+}
+#reverse_button:hover{
+	box-shadow: 0px 0px 5px 0px grey;
+		
+}
+h2{
+	color: #000;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin-left: 0px;
+}
+#conv_but_div{
+	width: 100%;
+	display: flex;
+	padding-right: 25px;
+	justify-content: flex-end;
+}
+#convert_button{
+	height: 45px;
+	width: 150px;
+	background: #000328;
+	color: #07f49e;
+	font-size: 23px;
+	letter-spacing: 1px;
+	font-weight: bold;
+	border-radius: 10px;
+	border: 5px double #07f49e;
+	order: 2;
+	justify-self: flex-end;
+	z-index: 1;
+}
+#convert_button:hover{
+	box-shadow: 0px 0px 8px 0px grey;
+}
+#answer_container{
+	/*display: flex;*/
+	display: none;
+	flex-flow: column;
+	justify-content: space-around;
+	height: 100px;
+	width: 85%;
+	order: 1;
+	/*border: 2px solid black;*/
+}
+.answers{
+	padding-left: 10px;
+	display: flex;
+	align-items: center;
+	font-family: 'Montserrat', sans-serif;	
+	font-weight: bold;
+	/*border: 2px solid blue;*/
+}
+#to_convert{
+	height: 25px;
+	width: 100%;
+	font-size: 20px;
+	color: darkslategrey;
+}
+#converted_answer{
+	height: 40px;
+	width: 100%;
+	padding-left: 5px;
+	font-size: 50px;
+	
+}
+#conversion_rates{
+	height: 30px;
+	width: 100%;
+	font-size: 20px;
+	color: darkslategrey;
+}
+footer{
+	width: 100%;
+	height: 50px;
+	background: none;
+	border-top: 2px solid black;
+	display: grid;
+	grid-template-columns: 34% 33% 33%;
+	grid-column-gap: ;
+	padding-left: ;
+}
+.footer_content_div{
+	text-align: center;
+	padding: 12px;
+	color: #000328;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
