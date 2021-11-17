@@ -1,0 +1,104 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Comfortaa', cursive;
+	color: #000328;
+}
+::selection {
+  color: #07f49e;
+  background: #000328;
+  }
+body{
+	height: 100vh;
+	background: #000328;
+	/*background: #07f49e;*/
+	display: flex;
+}
+#center{
+	height: 90vh;
+	width: 30em;
+	background: #07f49e;
+	/*background: #000328;*/
+	margin: auto;
+	border-radius: 10px;
+	display: flex;
+	flex-flow: column;
+	overflow: auto;
+}
+#heading{
+	height: 20%;
+	width: 100%;
+	background: none;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 25px;
+	word-spacing: 10px;
+	text-transform: uppercase;
+	font-weight: 900;
+}
+#form{
+	height: 80%;
+	width: 100%;
+	background: none;
+	display: flex;
+	flex-flow: column;
+	padding: 20px;
+	align-items: center;
+}
+.input{
+	height: 100px;
+	width: 95%;
+	/*border: 2px solid;*/
+	display: flex;
+	flex-flow: column;
+}
+.label{
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+.input_text{
+	height: 40px;
+	width: 95%;
+	border-radius: 5px;
+	border: none;
+	margin: 5px auto;
+	padding: 10px;
+	font-size: 18px;
+	outline: none;
+	letter-spacing: 1px;
+	box-shadow: 0px 0px 4px 0.5px #000328; 
+}
+.input_text:focus{
+	border: 1px solid #000328;
+	font-weight: 900;
+}
+#message{
+	resize: none;
+	height: 200px;
+
+}
+#message::-webkit-scrollbar {
+  width: 10px;
+}
+#message::-webkit-scrollbar-thumb {
+  background: #000328; 
+  border-radius: 5px;
+  border: 2px solid white;
+  }
+#message_input{
+	height: 180px;
+}
+#submit_button{
+	height: 40px;
+	width: 95%;
+	margin: auto;
+	border-radius: 5px;
+	border: none;
+	background: #000328;
+	font-size: 20px;
+	color: #07f49e;
+	cursor: pointer;
+}
