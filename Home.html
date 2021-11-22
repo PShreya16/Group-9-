@@ -8,19 +8,17 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
 	<div id="fix_head">
 		<div id="home_div">
 			<a href="Index.html" id="index_link">
-				<i class="material-icons home">home</i>
+				<i class="material-icons-outlined home">home</i>
 			</a>
 		</div>
-		<div id="top_logo_img">
-			<!-- <img src="2.png" id="logo_img">	 -->
-		</div>
+		<div id="top_logo_img"></div>
 		<div id="empty_div"></div>
 	</div>
 	<div id="rem_body">
@@ -40,7 +38,7 @@
 					</div>
 					<div id="from_div" class="aft_div">
 						<label for="from"><h2>From</h2></label>
-						<div id="from_opt">
+						<div id="from_opt">	
 							<select id="from_select" class="froto_options">
 								<option value="INR">Indian Rupee (INR)</option>
 								<option value="USD">U.S. Dollar (USD)</option>
@@ -55,9 +53,6 @@
 								<option value="CAD">Canadian Dollar (CAD)</option>
 							</select>
 						</div>
-					</div>
-					<div id="rev_but">					
-							<button id="reverse_button" onclick="reverseOptions()"></button>
 					</div>
 					<div id="to_div" class="aft_div">
 						<label for="to"><h2>To</h2></label>
@@ -79,23 +74,19 @@
 					</div>
 				</div>
 				<div id="conv_but_div">
-					<button id="convert_button" onClick="expand()">Convert</button>
+					<button id="convert_button" onclick="expand()">Convert</button>
 					<div id="answer_container">
-						<div id="to_convert" class="answers">WW.XX INR =</div>
-						<div id="converted_answer" class="answers">YY.ZZ USD</div>
-						<div id="conversion_rates" class="answers">1 INR = W.XY USD</div>
+						<div id="to_convert" class="answers"></div>
+						<div id="converted_answer" class="answers"></div>
+						<div id="conversion_rates" class="answers"></div>
 					</div>
 				</div>
 			</div>
 			<div id="chart_div">
-				<div id="chart_head"></div>
-				<div id="chart_x_container">
-					<div id="chart_y"></div>
-					<div id="chart">
+				
 						<!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
-					</div>
-				</div>
-				<div id="chart_x"></div>
+						<canvas id="myChart"></canvas>
+					
 			</div>
 		</div>
 	</div>
@@ -105,8 +96,16 @@
 		<div class="footer_content_div">
 			<a href="Feedback.html">Feedback</a>
 		</div>
-		<div class="footer_content_div">Contact Us</div>
+		<div class="footer_content_div" id="contact_div">	
+			<div id="contact_details">	
+				<i class="material-icons-outlined person">person</i>
+				<br>Email us at:<br>
+				currencyconvertor9@gmail.com	
+			</div>
+			Contact Us
+		</div>
 	</footer>
 <script src="Home.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
