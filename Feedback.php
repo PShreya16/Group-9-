@@ -18,6 +18,10 @@
             <h2>Feedback Form</h2>
         </div>
         <form id="form">
+        <?php
+        echo "hello";
+            include 'insert1.php';
+            ?>
             <form action="./InsertData" method="post">
                 <div class="input">
                     <label for="name" class="label">Name:</label>
@@ -35,6 +39,7 @@
                     <input type="submit" value="Submit" id="submit_button">
                 </div>
             </form>
+            
     </div>
 </body>
 
