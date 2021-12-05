@@ -8,7 +8,6 @@ input::-webkit-inner-spin-button {
 }
 body{
 	background-image: linear-gradient(#000328 10%, #07f49e);
-	overflow-x: hidden;
 }
 body::-webkit-scrollbar {
   width: 0.8em;
@@ -26,7 +25,7 @@ body::-webkit-scrollbar-thumb {
 }
 #fix_head{
 	width: 100%;
-	height: 80px;
+	height: 9vh;
 	background: #000328;
 	position: sticky;
 	padding: 1vh;	
@@ -74,7 +73,7 @@ i.home{
 }
 #rem_body{
 	width: 100%;
-	height: 660px;
+	height: 87vh;
 	/* height: 1050px; */
 	transition: 0.3s;
 }
@@ -154,6 +153,13 @@ i.home{
 		font-weight: bold; 
 		letter-spacing: 1px;
 		box-shadow: 0px 0px 10px 0px lightgrey;	
+		z-index: 2;
+}
+#amount:focus{
+	outline: none;
+	border: 2px solid #0E0E52;
+	background: #d0ffff;
+	color: #0E0E52;
 }
 #from_opt, #to_opt{
 	width: 330px;
@@ -161,6 +167,7 @@ i.home{
 	/*border: 2px solid black;*/
 	cursor: pointer;
 	overflow: hidden;
+	z-index: 2;
 }
 .froto_options{
 	width: 330px;
@@ -247,6 +254,18 @@ h2{
 	font-size: 20px;
 	color: darkslategrey;
 }
+#reference{
+	height: 20px;
+	width: 100%;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	color: rgb(4, 4, 187);
+}
+.material-icons-outlined.info{
+	padding-right: 3px;
+	font-size: 15px;
+}
 #chart_div{
 	margin-top: 10px;
 	width: 1280px;
@@ -260,12 +279,14 @@ h2{
 	align-items: center;
 }
 #myChart{
-	max-width: 1100px; 
-	max-height: 474px;
+	height: 0;
+	opacity: 0;
+	width: 1100px; 
+	transition: 1s;
 }
 footer{
 	width: 100%;
-	height: 50px;
+	height: 4vh;
 	background: none;
 	border-top: 2px solid black;
 	display: flex;
