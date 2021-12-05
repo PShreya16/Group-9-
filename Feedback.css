@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	font-family: 'Comfortaa', cursive;
 	color: #000328;
+	/* border: 2px solid red; */
 }
 ::selection {
   color: #07f49e;
@@ -17,9 +18,9 @@ body{
 }
 #center{
 	height: 90vh;
-	width: 30em;
+	width: 30%;
 	background: #07f49e;
-	/*background: #000328;*/
+	/* background: #000328; */
 	margin: auto;
 	border-radius: 10px;
 	display: flex;
@@ -33,7 +34,8 @@ body{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	font-size: 25px;
+	text-align: center;
+	font-size: 180%;
 	word-spacing: 10px;
 	text-transform: uppercase;
 	font-weight: 900;
@@ -48,14 +50,14 @@ body{
 	align-items: center;
 }
 .input{
-	height: 100px;
+	height: 100%;
 	width: 95%;
 	/*border: 2px solid;*/
 	display: flex;
 	flex-flow: column;
 }
 .label{
-	font-size: 20px;
+	font-size: 150%;
 	font-weight: bold;
 	margin-left: 20px;
 }
@@ -80,16 +82,16 @@ body{
 	height: 200px;
 
 }
-#message::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 10px;
 }
-#message::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #000328; 
   border-radius: 5px;
   border: 2px solid white;
   }
 #message_input{
-	height: 180px;
+	height: 150%;
 }
 #submit_button{
 	height: 40px;
