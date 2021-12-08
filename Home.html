@@ -1,111 +1,443 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Currency Convertor</title>
-	<link rel="stylesheet" type="text/css" href="Home.css">
-	<link rel="shortcut icon" href="favicon.ico" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>Currency Convertor</title>
+    <link rel="stylesheet" type="text/css" href="Home.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
+
 <body>
-	<div id="fix_head">
-		<div id="home_div">
-			<a href="Index.html" id="index_link">
-				<i class="material-icons-outlined home">home</i>
-			</a>
-		</div>
-		<div id="top_logo_img"></div>
-		<div id="empty_div"></div>
-	</div>
-	<div id="rem_body">
-		<div class="top_dsgn">
-			<div id="head_info_txt">
-			<h1 id="head_text">Check exchange rates for <br>all types of currencies.</h1>
-			</div>
-		</div>	
-		<div id="main_menu">
-			<div id="opt_cont">
-				<div id="inpt_cont">
-					<div id="amt_div" class="aft_div">
-						<label for="amount"><h2>Amount</h2></label>
-						<div id="amt_inp_txt">
-							<input type="number" id="amount" placeholder="Enter the amount" value='10.00'>
-						</div>
-					</div>
-					<div id="from_div" class="aft_div">
-						<label for="from"><h2>From</h2></label>
-						<div id="from_opt">	
-							<select id="from_select" class="froto_options">
-								<option value="INR">Indian Rupee (INR)</option>
-								<option value="USD">U.S. Dollar (USD)</option>
-								<option value="CHF">Swiss Franc (CHF)</option>
-								<option value="EUR">European Euro (EUR)</option>
-								<option value="KYD">Cayman Islands Dollar (KYD)</option>
-								<option value="GBP">British Pound Sterling (GBP)</option>
-								<option value="JOD">Jordanian Dinar (JOD)</option>
-								<option value="OMR">Omani Rial (OMR)</option>
-								<option value="BHD">Bahraini Dinar (BHD)</option>
-								<option value="KWD">Kuwaiti Dinar (KWD)</option>
-								<option value="CAD">Canadian Dollar (CAD)</option>
-							</select>
-						</div>
-					</div>
-					<div id="to_div" class="aft_div">
-						<label for="to"><h2>To</h2></label>
-						<div id="to_opt">	
-							<select id="to_select" class="froto_options">
-								<option value="USD">U.S. Dollar (USD)</option>
-								<option value="INR">Indian Rupee (INR)</option>
-								<option value="CHF">Swiss Franc (CHF)</option>
-								<option value="EUR">European Euro (EUR)</option>
-								<option value="KYD">Cayman Islands Dollar (KYD)</option>
-								<option value="GBP">British Pound Sterling (GBP)</option>
-								<option value="JOD">Jordanian Dinar (JOD)</option>
-								<option value="OMR">Omani Rial (OMR)</option>
-								<option value="BHD">Bahraini Dinar (BHD)</option>
-								<option value="KWD">Kuwaiti Dinar (KWD)</option>
-								<option value="CAD">Canadian Dollar (CAD)</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div id="conv_but_div">
-					<button id="convert_button" onclick="expand()">Convert</button>
-					<div id="answer_container">
-						<div id="to_convert" class="answers"></div>
-						<div id="converted_answer" class="answers"></div>
-						<div id="conversion_rates" class="answers"></div>
-					</div>
-				</div>
-			</div>
-			<div id="chart_div">
-				
-						<!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
-						<canvas id="myChart"></canvas>
-					
-			</div>
-		</div>
-	</div>
-	<footer>
-		<div class="footer_content_div">
-			<a href="https://www.makeinindia.com/" target="_blank">Made in India</a></div>
-		<div class="footer_content_div">
-			<a href="Feedback.html">Feedback</a>
-		</div>
-		<div class="footer_content_div" id="contact_div">	
-			<div id="contact_details">	
-				<i class="material-icons-outlined person">person</i>
-				<br>Email us at:<br>
-				currencyconvertor9@gmail.com	
-			</div>
-			Contact Us
-		</div>
-	</footer>
-<script src="Home.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div id="fix_head">
+        <div id="home_div">
+            <a href="Index.html" id="index_link">
+                <i class="material-icons-outlined home">home</i>
+            </a>
+        </div>
+        <div id="top_logo_img"></div>
+        <div id="empty_div"></div>
+    </div>
+    <div id="rem_body">
+        <div class="top_dsgn">
+            <div id="head_info_txt">
+                <h1 id="head_text">Check exchange rates for <br>all types of currencies.</h1>
+            </div>
+        </div>
+        <div id="main_menu">
+            <div id="opt_cont">
+                <div id="inpt_cont">
+                    <div id="amt_div" class="aft_div">
+                        <label for="amount">
+							<h2>Amount</h2>
+						</label>
+                        <div id="amt_inp_txt">
+                            <input type="number" id="amount" placeholder="Enter the amount" value='1.00'>
+                        </div>
+                    </div>
+                    <div class="select_box_container" id="from_container">
+                        <div class="options_container" id="from_options_container">
+                            <!-- <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ANG">ANG - Netherlands Antillean Guilder</label></div> -->
+                            <!-- <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BAM">BAM - Bosnia-Herzegovina Convertible Mark</label></div> -->
+                            <!-- <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CUC">CUC - Cuban convertible peso</label></div> -->
+                            <!-- <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="NIO">NIO - The Nicaraguan córdoba</label></div> -->
+                            <!-- <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="PGK">PGK - The Papua New Guinea kina</label></div> -->
+                            <!-- <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="STD">STD - São Tomé And Príncipe Dobra</label></div> -->
+                            <!-- <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="TTD">TTD - Trinidad and Tobago dollar</label></div> -->
+                            <!-- <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="XAF">XAF - Central African CFA Franc</label></div> -->
+                            <!-- <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="XCD">XCD - Eastern Caribbean dollar</label></div> -->
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="AED">AED - Arab Emirates Dirham</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="AFN">AFN - Afghanistan Afghani</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ALL">ALL - Albania Lek</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="AMD">AMD - Armenian Dram</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="AOA">AOA - Angolan Kwanza</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ARS">ARS - Argentine Peso</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="AUD">AUD - Australian Dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="AWG">AWG - Dutch Guilder</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="AZN">AZN - Azerbaijani Manat</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BBD">BBD - Barbados Dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BDT">BDT - Bangladeshi Taka</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BGN">BGN - Bulgarian Lev</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BHD">BHD - Bahraini Dinar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BIF">BIF - Burundian Franc</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BMD">BMD - Bermudan Dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BND">BND - Brunei Dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BOB">BOB - Bolivian Boliviano</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BRL">BRL - Brazilian Real</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BSD">BSD - Bahamian Dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BTC">BTC - El Salvador</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BTN">BTN - Bhutanese ngultrum</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BWP">BWP - Botswana pula</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BYN">BYN - Belarusian ruble</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BYR">BYR - Belarusian Ruble</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="BZD">BZD - Belize dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CAD">CAD - Canadian dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CDF">CDF - Congolese franc</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CHF">CHF - Swiss franc</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CLF">CLF - Unidad de Fomento</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CLP">CLP - Chilean peso</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CNY">CNY - Renminbi</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="COP">COP - Colombian peso</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CRC">CRC - Costa Rica</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CUP">CUP - Cuban peso</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CVE">CVE - Cape Verdean escudo</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="CZK">CZK - Czech koruna</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="DJF">DJF - Djiboutian franc</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="DKK">DKK - Danish krone</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="DOP">DOP - Dominican peso</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="DZD">DZD - Algerian dinar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="EGP">EGP - Egyptian pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ERN">ERN - Eritrean nakfa</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ETB">ETB - Ethiopian birr</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="EUR">EUR - Euro</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="FJD">FJD - Fijian dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="FKP">FKP - Falkland Islands pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="GBP">GBP - Pound sterling</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="GEL">GEL - Georgian lari</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="GGP">GGP - Guernsey pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="GHS">GHS - Ghanaian cedi</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="GIP">GIP - Gibraltar pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="GMD">GMD - Gambian dalasi</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="GNF">GNF - Guinean franc</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="GTQ">GTQ - Guatemalan quetzal</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="GYD">GYD - Guyanese dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="HKD">HKD - Hong Kong dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="HNL">HNL - Honduran lempira</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="HRK">HRK - Croatian kuna</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="HTG">HTG - Haitian gourde</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="HUF">HUF - Hungarian Forint</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="IDR">IDR - Indonesian Rupiah</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ILS">ILS - Israeli New Shekel</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="IMP">IMP - Isle of Man Pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="INR">INR - Indian rupee</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="IQD">IQD - Iraqi Dinar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="IRR">IRR - Iranian Rial</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ISK">ALL - Icelandic Króna</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="JEP">JEP - Jersey Pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="JMD">JMD - Jamaican Dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="JOD">JOD - Jordanian Dinar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="JPY">JPY - Japanese Yen</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="KES">KES - Kenyan Shilling</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="KGS">KGS - Kyrgystani Som</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="KHR">KHR - Cambodian riel</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="KMF">KMF - Comorian franc</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="KPW">KPW - North Korean won</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="KRW">KRW - South Korean won</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="KWD">KWD - Kuwaiti Dinar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="KYD">KYD - Cayman Islands Dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="KZT">KZT - Kazakhstani Tenge</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="LAK">LAK - Lao kip</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="LBP">LBP - Lebanese pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="LKR">LKR - Sri Lankan rupee</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="LRD">LRD - Liberian dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="LSL">LSL - The Lesotho loti</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="LTL">LTL - The Lithuanian Litas</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="LVL">LVL - Latvian lats</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="LYD">LYD - Libyan Dinar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MAD">MAD -  Moroccan dirham</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MDL">MDL - Moldovan leu</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MGA">MGA - Malagasy ariary</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MKD">MKD - Macedonian Denar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MMK">MMK - The Myanmar Kyat</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MNT">MNT - The tugrik</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MOP">MOP - Macanese pataca</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MRO">MRO - Mauritanian Ouguiya</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MUR">MUR - Mauritius Rupee</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MVR">MVR - Maldivian rufiyaa</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MWK">MWK - Malawian Kwacha</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MXN">MXN - the Mexican peso</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MYR">MYR - Malaysian Ringgit</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="MZN">MZN - Mozambican metical</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="NAD">NAD - Namibian dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="NGN">NGN - Nigerian naira</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="NOK">NOK - Norwegian krone</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="NPR">NPR - Nepalese rupee</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="NZD">NZD - New Zealand Dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="OMR">OMR - Omani rial</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="PAB">PAB - Panamanian Balboa</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="PEN">PEN - Peruvian sol</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="PHP">PHP - Philippine peso</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="PKR">PKR - Pakistani rupee</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="PLN">PLN - Polish zloty</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="PYG">PYG - Paraguayan guaraní</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="QAR">QAR - Qatari riyal</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="RON">RON - Romanian new leu</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="RSD">RSD - Serbian dinar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="RUB">RUB - Russian Ruble</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="REF">REF - Rwandan franc</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SAR">SAR - Saudi Riyal</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SBD">SBD - Solomon Islands dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SCR">SCR - Seychelles Rupee</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SDG">SDG - Sudanese pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SEK">SEK - Swedish Krona</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SGD">SGD - Singapore dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SHP">SHP - Saint Helena pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SLL">SLL - Sierra Leonean Leone</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SOS">SOS - the Somali shilling</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SRD">SRD - Suriname dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SVC">SVC - Salvadoran Colón</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SYP">SYP - Syrian pound</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="SZL">SZL - Swazi lilangeni</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="THB">THB - Thai baht</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="TJS">TJS - Tajikistani Somoni</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="TMT">TMT - Turkmenistani Manat</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="TND">TND - Tunisian dinar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="TOP">TOP - Tongan Paʻanga</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="TRY">TRY - Turkish New Lira</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="TWD">TWD - New Taiwan dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="TZS">TZS - Tanzanian Shilling</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="UAH">UAH - Ukraine Hryvnia</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="UGX">UGX - Ugandan shilling</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="USD">USD - United States dollar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="UYU">UYU - The Uruguayan Peso</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="UZS">UZS - Uzbekistani soʻm</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="VEF">VEF - Venezuelan bolívar</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="VND">VND - Vietnamese Dong</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="VUV">VUV - Vanuatu Vatu</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="WST">WST - Samoan Tala</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="XAG">XAG - Silver Ounce</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="XAU">XAU - one troy ounce of gold</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="XDR">XDR - Special drawing rights</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="XOF">XOF - West African CFA franc</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="XPF">XPF - Central Pacific franc</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="YER">YER - Yemeni Rial</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ZAR">ZAR - South African rand</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ZMK">ZMK - Zambian kwacha</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ZMW">ZMW - The kwacha</label></div>
+                            <div class="from-option"><input type="radio" class="radio" name="from_radio" /><label for="ZWL">ZWL - Zimbabwean Dollar</label></div>
+
+
+                        </div>
+                        <div class="selected" id="from_selected">INR- Indian Rupee</div>
+                        <div class="label" id="from_label">
+                            <h2>From</h2>
+                        </div>
+                    </div>
+                    <div id="swap_container">
+                        <button id="swap_button">
+                            <i class="material-icons-outlined swap_horizontal_circle">
+                            swap_horizontal_circle
+                        </i>
+                    </button>
+                    </div>
+                    <div class="select_box_container" id="to_container">
+                        <div class="options_container" id="to_options_container">
+                            <!-- <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ANG">ANG - Netherlands Antillean Guilder</label></div> -->
+                            <!-- <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BAM">BAM - Bosnia-Herzegovina Convertible Mark</label></div> -->
+                            <!-- <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CUC">CUC - Cuban convertible peso</label></div> -->
+                            <!-- <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="NIO">NIO - The Nicaraguan córdoba</label></div> -->
+                            <!-- <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="PGK">PGK - The Papua New Guinea kina</label></div> -->
+                            <!-- <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="STD">STD - São Tomé And Príncipe Dobra</label></div> -->
+                            <!-- <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="TTD">TTD - Trinidad and Tobago dollar</label></div> -->
+                            <!-- <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="XAF">XAF - Central African CFA Franc</label></div> -->
+                            <!-- <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="XCD">XCD - Eastern Caribbean dollar</label></div> -->
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="AED">AED - Arab Emirates Dirham</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="AFN">AFN - Afghanistan Afghani</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ALL">ALL - Albania Lek</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="AMD">AMD - Armenian Dram</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="AOA">AOA - Angolan Kwanza</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ARS">ARS - Argentine Peso</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="AUD">AUD - Australian Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="AWG">AWG - Dutch Guilder</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="AZN">AZN - Azerbaijani Manat</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BBD">BBD - Barbados Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BDT">BDT - Bangladeshi Taka</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BGN">BGN - Bulgarian Lev</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BHD">BHD - Bahraini Dinar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BIF">BIF - Burundian Franc</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BMD">BMD - Bermudan Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BND">BND - Brunei Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BOB">BOB - Bolivian Boliviano</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BRL">BRL - Brazilian Real</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BSD">BSD - Bahamian Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BTC">BTC - El Salvador</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BTN">BTN - Bhutanese Ngultrum</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BWP">BWP - Botswana Pula</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BYN">BYN - Belarusian Ruble</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BYR">BYR - Belarusian Ruble</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="BZD">BZD - Belize dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CAD">CAD - Canadian dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CDF">CDF - Congolese franc</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CHF">CHF - Swiss franc</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CLF">CLF - Unidad de Fomento</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CLP">CLP - Chilean peso</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CNY">CNY - Renminbi</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="COP">COP - Colombian peso</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CRC">CRC - Costa Rica</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CUP">CUP - Cuban peso</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CVE">CVE - Cape Verdean escudo</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="CZK">CZK - Czech koruna</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="DJF">DJF - Djiboutian franc</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="DKK">DKK - Danish krone</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="DOP">DOP - Dominican peso</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="DZD">DZD - Algerian dinar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="EGP">EGP - Egyptian pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ERN">ERN - Eritrean nakfa</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ETB">ETB - Ethiopian birr</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="EUR">EUR - Euro</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="FJD">FJD - Fijian dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="FKP">FKP - Falkland Islands pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="GBP">GBP - Pound sterling</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="GEL">GEL - Georgian lari</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="GGP">GGP - Guernsey pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="GHS">GHS - Ghanaian cedi</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="GIP">GIP - Gibraltar pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="GMD">GMD - Gambian dalasi</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="GNF">GNF - Guinean franc</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="GTQ">GTQ - Guatemalan quetzal</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="GYD">GYD - Guyanese dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="HKD">HKD - Hong Kong dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="HNL">HNL - Honduran lempira</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="HRK">HRK - Croatian kuna</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="HTG">HTG - Haitian gourde</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="HUF">HUF - Hungarian Forint</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="IDR">IDR - Indonesian Rupiah</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ILS">ILS - Israeli New Shekel</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="IMP">IMP - Isle of Man Pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="INR">INR - Indian rupee</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="IQD">IQD - Iraqi Dinar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="IRR">IRR - Iranian Rial</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ISK">ALL - Icelandic Króna</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="JEP">JEP - Jersey Pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="JMD">JMD - Jamaican Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="JOD">JOD - Jordanian Dinar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="JPY">JPY - Japanese Yen</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="KES">KES - Kenyan Shilling</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="KGS">KGS - Kyrgystani Som</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="KHR">KHR - Cambodian Riel</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="KMF">KMF - Comorian Franc</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="KPW">KPW - North Korean Won</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="KRW">KRW - South Korean Won</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="KWD">KWD - Kuwaiti Dinar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="KYD">KYD - Cayman Islands Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="KZT">KZT - Kazakhstani Tenge</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="LAK">LAK - Lao Kip</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="LBP">LBP - Lebanese Pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="LKR">LKR - Sri Lankan Rupee</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="LRD">LRD - Liberian Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="LSL">LSL - The Lesotho Loti</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="LTL">LTL - The Lithuanian Litas</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="LVL">LVL - Latvian Lats</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="LYD">LYD - Libyan Dinar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MAD">MAD - Moroccan Dirham</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MDL">MDL - Moldovan Leu</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MGA">MGA - Malagasy Ariary</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MKD">MKD - Macedonian Denar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MMK">MMK - The Myanmar Kyat</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MNT">MNT - The Tugrik</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MOP">MOP - Macanese Pataca</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MRO">MRO - Mauritanian Ouguiya</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MUR">MUR - Mauritius Rupee</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MVR">MVR - Maldivian Rufiyaa</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MWK">MWK - Malawian Kwacha</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MXN">MXN - The Mexican Peso</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MYR">MYR - Malaysian Ringgit</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="MZN">MZN - Mozambican Metical</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="NAD">NAD - Namibian Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="NGN">NGN - Nigerian Naira</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="NOK">NOK - Norwegian Krone</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="NPR">NPR - Nepalese Rupee</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="NZD">NZD - New Zealand Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="OMR">OMR - Omani Rial</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="PAB">PAB - Panamanian Balboa</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="PEN">PEN - Peruvian Sol</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="PHP">PHP - Philippine Peso</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="PKR">PKR - Pakistani Rupee</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="PLN">PLN - Polish Zloty</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="PYG">PYG - Paraguayan Guaraní</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="QAR">QAR - Qatari Riyal</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="RON">RON - Romanian New Leu</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="RSD">RSD - Serbian Dinar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="RUB">RUB - Russian Ruble</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="REF">REF - Rwandan Franc</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SAR">SAR - Saudi Riyal</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SBD">SBD - Solomon Islands Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SCR">SCR - Seychelles Rupee</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SDG">SDG - Sudanese Pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SEK">SEK - Swedish Krona</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SGD">SGD - Singapore Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SHP">SHP - Saint Helena Pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SLL">SLL - Sierra Leonean Leone</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SOS">SOS - the Somali Shilling</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SRD">SRD - Suriname Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SVC">SVC - Salvadoran Colón</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SYP">SYP - Syrian Pound</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="SZL">SZL - Swazi Lilangeni</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="THB">THB - Thai Baht</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="TJS">TJS - Tajikistani Somoni</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="TMT">TMT - Turkmenistani Manat</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="TND">TND - Tunisian Dinar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="TOP">TOP - Tongan Paʻanga</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="TRY">TRY - Turkish New Lira</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="TWD">TWD - New Taiwan Dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="TZS">TZS - Tanzanian Shilling</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="UAH">UAH - Ukraine Hryvnia</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="UGX">UGX - Ugandan shilling</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="USD">USD - United States dollar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="UYU">UYU - The Uruguayan Peso</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="UZS">UZS - Uzbekistani Soʻm</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="VEF">VEF - Venezuelan Bolívar</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="VND">VND - Vietnamese Dong</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="VUV">VUV - Vanuatu Vatu</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="WST">WST - Samoan Tala</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="XAG">XAG - Silver Ounce</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="XAU">XAU - One Troy Ounce of Gold</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="XDR">XDR - Special Drawing Rights</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="XOF">XOF - West African CFA Franc</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="XPF">XPF - Central Pacific Franc</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="YER">YER - Yemeni Rial</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ZAR">ZAR - South African Rand</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ZMK">ZMK - Zambian Kwacha</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ZMW">ZMW - The Kwacha</label></div>
+                            <div class="to-option"><input type="radio" class="radio" name="to_radio" /><label for="ZWL">ZWL - Zimbabwean Dollar</label></div>
+
+
+                        </div>
+                        <div class="selected" id="to_selected">USD - U.S. Dollar</div>
+                        <div class="label" id="to_label">
+                            <h2>To</h2>
+                        </div>
+                    </div>
+                </div>
+                <div id="conv_but_div">
+                    <button id="convert_button" onclick="expand()">Convert</button>
+                    <div id="answer_container">
+                        <div id="to_convert" class="answers"></div>
+                        <div id="converted_answer" class="answers"></div>
+                        <div id="conversion_rates" class="answers"></div>
+                        <div id="reference" class="answers">
+                            <i class="material-icons-outlined info">info</i> Curency Rates from exchangeratesapi.io
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="chart_div">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer_content_div">
+            <a href="https://www.makeinindia.com/" target="_blank">Made in India</a>
+        </div>
+        <div class="footer_content_div">
+            <a href="Feedback.html" target="_blank">Feedback</a>
+        </div>
+        <div class="footer_content_div" id="contact_div">
+            <div id="contact_details">
+                <i class="material-icons-outlined person">person</i>
+                <br>Email us at:<br> currencyconvertor9@gmail.com
+            </div>
+            Contact Us
+        </div>
+    </footer>
+    <script src="Home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>
