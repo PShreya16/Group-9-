@@ -1,5 +1,12 @@
 var flag = 0;
 
+var api_data;
+fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=c290ba56ae23465eb50b1ef672c756cd`)
+    .then((res) => res.json())
+    .then((data) => { api_data = data });
+
+
+
 const fromSelected = document.getElementById("from_selected");
 const fromOptionsContainer = document.getElementById("from_options_container");
 const fromOptionsList = fromOptionsContainer.querySelectorAll(".from-option");
@@ -15,6 +22,9 @@ toOptionsList.forEach(element => {
         toSelected.innerHTML = element.querySelector("label").innerHTML;
         if (flag == 1) {
             calculate();
+            filter_array();
+            // myChart.update();
+            updateChart();
         }
     })
 });
@@ -36,6 +46,9 @@ fromOptionsList.forEach(element2 => {
         fromSelected.innerHTML = element2.querySelector("label").innerHTML;
         if (flag == 1) {
             calculate();
+            filter_array();
+            // myChart.update();
+            updateChart();
         }
     })
 });
@@ -65,35 +78,36 @@ function expand() {
 document.getElementById('amount').addEventListener("keyup", () => { if (flag == 1) { calculate(); } })
 
 
+
 function calculate() {
     let from = document.getElementById('from_selected').innerHTML.substring(0, 3);
+    let to = document.getElementById('to_selected').innerHTML.substring(0, 3);
+    let amount = document.getElementById('amount').value;
     // from = from.substring(0,4);
     // console.log(from);
-    let to = document.getElementById('to_selected').innerHTML.substring(0, 3);
     // let to = document.getElementById('to_select').value;
-    let amount = document.getElementById('amount').value;
 
-    fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=d2d2d6677c8b05a6b21eebf39b1744cc`)
-        .then((res) => res.json())
-        .then((data) => {
-            const rate1 = data.rates[from];
-            const rate2 = data.rates[to];
-            const converted_rate = rate2 / rate1;
-            const final_amount = amount * converted_rate;
-            console.log(data);
-            document.getElementById('answer_container').style.height = '110px';
-            document.getElementById('answer_container').style.opacity = '1';
-            document.getElementById('to_convert').innerHTML = (amount + " " + from + " =");
-            document.getElementById('converted_answer').innerHTML = (final_amount + " " + to);
-            document.getElementById('conversion_rates').innerHTML = ("1 " + from + " = " + converted_rate + " " + to);
-        });
+    const rate1 = api_data.rates[from];
+    const rate2 = api_data.rates[to];
+    const converted_rate = rate2 / rate1;
+    const final_amount = amount * converted_rate;
+    document.getElementById('answer_container').style.height = '110px';
+    document.getElementById('answer_container').style.opacity = '1';
+    document.getElementById('to_convert').innerHTML = (amount + " " + from + " =");
+    document.getElementById('converted_answer').innerHTML = (final_amount + " " + to);
+    document.getElementById('conversion_rates').innerHTML = ("1 " + from + " = " + converted_rate + " " + to);
 }
 
 document.getElementById("swap_button").addEventListener("click", () => {
     let temp = document.getElementById("from_selected").innerHTML;
     document.getElementById("from_selected").innerHTML = document.getElementById("to_selected").innerHTML;
     document.getElementById("to_selected").innerHTML = temp;
-    if (flag == 1) { calculate(); }
+    if (flag == 1) {
+        calculate();
+        filter_array();
+        // myChart.update();
+        updateChart();
+    }
 
 })
 
@@ -107,7 +121,7 @@ var day = current_date.substring(8, 10);
 
 var i = 0;
 
-for (i = 0; i < 60; i++) {
+for (i = 0; i < 10; i++) {
 
     var date = (year + "-" + month + "-" + day);
 
@@ -143,44 +157,61 @@ for (i = 0; i < 60; i++) {
 
 let array = [];
 let filtered_array = [];
-tan();
+let from_rates_array = [];
+let to_rates_array = [];
+getPastRates();
 
-function tan() {
-    for (i = 0; i < date_array.length; i++) {
-        fetch(`http://api.exchangeratesapi.io/v1/${date_array[i]}?access_key=d2d2d6677c8b05a6b21eebf39b1744cc`)
+function getPastRates() {
+    for (i = 0; i < 10; i++) {
+        fetch(`http://api.exchangeratesapi.io/v1/${date_array[i]}?access_key=c290ba56ae23465eb50b1ef672c756cd`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
                 // console.log(data.date+" "+data.rates.INR);
-                array.push((data.timestamp) + " " + (data.rates.INR));
-                array.sort();
+                array.push(data);
             });
     }
 }
 
-function tan2() {
-    for (i = 0; i < array.length; i++) {
-        filtered_array[i] = array[i].substring(11, 20);
+function filter_array() {
+    let from = document.getElementById('from_selected').innerHTML.substring(0, 3);
+    let to = document.getElementById('to_selected').innerHTML.substring(0, 3);
+    console.log
+    for (i = 0; i < 10; i++) {
+        array.sort((a, b) => a.timestamp - b.timestamp);
+        from_rates_array[i] = array[i].rates[from];
+        to_rates_array[i] = array[i].rates[to];
+        filtered_array[i] = to_rates_array[i] / from_rates_array[i];
     }
-
 }
-setTimeout(tan2, 5000);
+setTimeout(filter_array, 2000);
 
 const ctx = document.getElementById('myChart').getContext('2d');
+
+let from = document.getElementById('from_selected').innerHTML.substring(0, 3);
+let to = document.getElementById('to_selected').innerHTML.substring(0, 3);
 const myChart = new Chart(ctx, {
     type: 'line',
     data: {
         labels: date_array.reverse(),
         datasets: [{
-            label: "Graph",
+            label: (from + " to " + to),
             data: filtered_array,
             fill: false,
-            backgroindColor: 'rgba(0,0,0,1)',
+            backgroundColor: 'rgba(0,3,40,1)',
             borderColor: [
-                'rgba(255, 99, 132, 1)'
+                'rgba(11, 123, 214, 1)'
             ],
             borderWidth: 3,
             lineTension: 0
         }]
-    },
+    }
 });
+
+function updateChart() {
+    let from = document.getElementById('from_selected').innerHTML.substring(0, 3);
+    let to = document.getElementById('to_selected').innerHTML.substring(0, 3);
+    myChart.data.datasets[0].label = (from + " to " + to);
+    console.log(myChart.data.datasets[0].label);
+    myChart.update();
+}
