@@ -9,4 +9,4 @@ Members:
 33. Shreeya Panchal
 34. Sahaj Saliya
 35. Shreya Parchurkar
-36. Tanmay Patel
+36. Tanmay Arsania
