@@ -1,7 +1,7 @@
 var flag = 0;
 
 var api_data;
-fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=c290ba56ae23465eb50b1ef672c756cd`)
+fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=55f0bb50035a47085e940460de15d650`)
     .then((res) => res.json())
     .then((data) => { api_data = data });
 
@@ -121,7 +121,7 @@ var day = current_date.substring(8, 10);
 
 var i = 0;
 
-for (i = 0; i < 10; i++) {
+for (i = 0; i < 60; i++) {
 
     var date = (year + "-" + month + "-" + day);
 
@@ -162,8 +162,8 @@ let to_rates_array = [];
 getPastRates();
 
 function getPastRates() {
-    for (i = 0; i < 10; i++) {
-        fetch(`http://api.exchangeratesapi.io/v1/${date_array[i]}?access_key=c290ba56ae23465eb50b1ef672c756cd`)
+    for (i = 0; i < 60; i++) {
+        fetch(`http://api.exchangeratesapi.io/v1/${date_array[i]}?access_key=55f0bb50035a47085e940460de15d650`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
@@ -177,14 +177,15 @@ function filter_array() {
     let from = document.getElementById('from_selected').innerHTML.substring(0, 3);
     let to = document.getElementById('to_selected').innerHTML.substring(0, 3);
     console.log
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 60; i++) {
         array.sort((a, b) => a.timestamp - b.timestamp);
         from_rates_array[i] = array[i].rates[from];
         to_rates_array[i] = array[i].rates[to];
         filtered_array[i] = to_rates_array[i] / from_rates_array[i];
     }
 }
-setTimeout(filter_array, 2000);
+setTimeout(filter_array, 3000);
+setTimeout(updateChart, 5000);
 
 const ctx = document.getElementById('myChart').getContext('2d');
 
@@ -215,3 +216,9 @@ function updateChart() {
     console.log(myChart.data.datasets[0].label);
     myChart.update();
 }
+
+fetch(`http://api.coinlayer.com/api/live?access_key=2da074cfee17cc30d15ba9a56ff249a7`)
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+    });
